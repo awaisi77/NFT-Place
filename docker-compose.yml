@@ -1,0 +1,26 @@
+version: "3.4"
+services:
+  
+  ui-api:
+    build:
+      context: ./UI/api
+    ports:
+      - 3894:3894
+    volumes:
+      - D:\Pvt\NFT\NFT-Markete\UI\api\storage:/NFT/UI/api/storage
+    depends_on:
+      - db
+
+  # ui-beta:
+  #   build:
+  #     context: ./UI/client-beta
+  #   ports:
+  #     - 4000:4000
+  #   depends_on:
+  #     - db
+      
+  db:
+    build:
+      context: ./db
+    ports:
+      - "3306:3306"
